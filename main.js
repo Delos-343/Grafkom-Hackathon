@@ -23,7 +23,7 @@ function main() {
 
     const scene = new Three.Scene();
     {
-        const color = 0xFFFFFF;
+        const color = 0xFFD700;
         const intensity = 1;
 
         // added light
@@ -40,4 +40,36 @@ function main() {
     const boxDepth = 0.5;
 
     const geometry = new THREE.BoxGeometry(boxWidth, boxHeight, boxDepth);
+
+    // build new polygon material
+    function makeInstance(geometry, color, x) {
+
+        const material = new THREE.MeshPhongMaterial({color});
+    
+        const cube = new THREE.Mesh(geometry, material);
+        scene.add(cube);
+    
+        cube.position.x = x;
+    
+        return cube;
+    }
+
+    // render polygon
+    const cubes = [
+        makeInstance(geometry, 0x44aa88,  0),
+    ];
+
+    // set renderer to screen size (current device)
+    function resizeRendererToDisplaySize(renderer) {
+
+        const canvas = renderer.domElement;
+        const width = canvas.clientWidth;
+        const height = canvas.clientHeight;
+        const needResize = canvas.width !== width || canvas.height !== height;
+
+        if (needResize) {
+          renderer.setSize(width, height, false);
+        }
+        return needResize;
+    }
 }
