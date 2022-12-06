@@ -30,7 +30,7 @@ function main() {
   // create new scene
   const scene = new THREE.Scene();
   {
-    const color = 0xFFD700;
+    const color = 0x87CEEB;
     const intensity = 150;
     const light = new THREE.DirectionalLight(color, intensity);
     light.position.set(-2, 4, 16);
