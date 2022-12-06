@@ -73,7 +73,9 @@ function main() {
         return needResize;
     }
 
+    // render in given time
     function render(time) {
+        
         time *= 0.001;
     
         if (resizeRendererToDisplaySize(renderer)) {
